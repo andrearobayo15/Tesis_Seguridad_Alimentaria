@@ -10,7 +10,7 @@ Este repositorio contiene el código completo de la tesis de maestría **"Predic
 
 El proyecto implementa un sistema de predicción de inseguridad alimentaria utilizando técnicas de Machine Learning, integrando datos socioeconómicos, climáticos y geoespaciales para generar predicciones a nivel departamental en Colombia.
 
-## 🎯 Objetivos
+## Objetivos
 
 ### Objetivo General
 Desarrollar un modelo predictivo de inseguridad alimentaria en Colombia utilizando técnicas de Machine Learning que integre variables socioeconómicas, climáticas y geoespaciales.
@@ -22,63 +22,63 @@ Desarrollar un modelo predictivo de inseguridad alimentaria en Colombia utilizan
 4. **Desarrollar modelos de Machine Learning** (XGBoost, Random Forest, Elastic Net)
 5. **Generar predicciones para 2025** y mapas de riesgo por departamento
 
-## 📊 Metodología CRISP-DM
+##  Metodología CRISP-DM
 
 El proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining):
 
-### 1. 📈 Entendimiento del Negocio
+### 1.  Entendimiento del Negocio
 - Análisis del problema de inseguridad alimentaria en Colombia
 - Definición de variables objetivo (FIES moderado-grave y grave)
 - Identificación de stakeholders (MADR, SNATSA, UPRA)
 
-### 2. 📋 Entendimiento de los Datos
+### 2.  Entendimiento de los Datos
 - **Fuentes de datos**: DANE (ECV, FIES), ERA5 (clima), UPRA (geoespacial)
 - **Período**: 2022-2025 (48 meses)
 - **Cobertura**: 32 departamentos de Colombia
 - **Variables**: 50+ variables socioeconómicas y climáticas
 
-### 3. 🔧 Preparación de los Datos
+### 3.  Preparación de los Datos
 - Integración de múltiples fuentes de datos
 - Normalización y estandarización
 - Manejo de datos faltantes con **Amelia** (Multiple Imputation)
 - Filtrado geoespacial con **máscara UPRA**
 - Ingeniería de características (features cíclicas, interacciones)
 
-### 4. 🤖 Modelado
+### 4.  Modelado
 - **XGBoost**: Modelo principal con optimización de hiperparámetros
 - **Random Forest**: Modelo de ensamble para comparación
 - **Elastic Net**: Modelo lineal regularizado
 - **PCA**: Reducción de dimensionalidad (15 componentes principales)
 
-### 5. ✅ Evaluación
+### 5.  Evaluación
 - **Métricas**: R², RMSE, MAE
 - **Validación cruzada** temporal
 - **Análisis de importancia** de variables
 - **Mapas de predicción** por departamento
 
-### 6. 🚀 Despliegue
+### 6.  Despliegue
 - Predicciones para 2025
 - Mapas interactivos de riesgo
 - Documentación completa para replicabilidad
 
-## 🗂️ Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 Tesis-Seguridad-Alimentaria-ML/
 │
-├── 📚 Documentación/
+├──  Documentación/
 │   ├── README.md                                    # Este archivo
 │   ├── DOCUMENTACION_MASCARA_UPRA.md               # Documentación técnica UPRA
 │   ├── DICCIONARIO_VARIABLES_BASE_MASTER.md        # Diccionario de variables
 │   ├── EXPLICACION_MATEMATICA_XGBOOST.md           # Fundamentos matemáticos
 │   └── EXPLICACION_TECNICA_AMELIA.md               # Metodología de imputación
 │
-├── 🔬 Análisis Exploratorio/
+├──  Análisis Exploratorio/
 │   ├── analisis_variables.py                       # Análisis descriptivo
 │   ├── analizar_datos_faltantes_detallado.py      # Análisis de missingness
 │   └── crear_correlacion_variables_explicativas_FIES_corregido.py
 │
-├── 🛠️ Procesamiento de Datos/
+├──  Procesamiento de Datos/
 │   ├── crear_base_master_final_completa.py         # Integración de datos
 │   ├── consolidador_base_master_v2.py              # Consolidación final
 │   ├── extender_base_master_2025_corregido.py      # Extensión temporal
@@ -88,7 +88,7 @@ Tesis-Seguridad-Alimentaria-ML/
 │   ├── simplificar_variables_climaticas.py         # Procesamiento clima
 │   └── reconsolidar_datos_climaticos.py            # Consolidación clima
 │
-├── 🧮 Análisis PCA/
+├──  Análisis PCA/
 │   └── analisis_pca/
 │       ├── scripts/
 │       │   ├── 01_analisis_pca_completo.py         # PCA principal
@@ -111,12 +111,12 @@ Tesis-Seguridad-Alimentaria-ML/
 │           ├── modelos/                            # Modelos entrenados
 │           └── predicciones/                       # Predicciones 2025
 │
-├── 🎨 Visualización/
+├──  Visualización/
 │   ├── crear_graficas_prediccion_2025.py          # Gráficos predicciones
 │   ├── crear_mapa_colombia_final_corregido.py     # Mapas Colombia
 │   └── crear_graficas_resultados.py               # Gráficos resultados
 │
-├── 🔄 Imputación de Datos/
+├──  Imputación de Datos/
 │   └── imputaciones_amelia/
 │       ├── scripts/
 │       │   └── analizar_metodos_consolidacion.R   # Scripts R Amelia
@@ -124,45 +124,45 @@ Tesis-Seguridad-Alimentaria-ML/
 │       │   └── BASE_MASTER_FINAL_TESIS.csv        # Datos imputados
 │       └── diagnosticos/                          # Diagnósticos imputación
 │
-├── 📁 Código Fuente/
+├──  Código Fuente/
 │   └── src/
 │       ├── data/                                  # Módulos de datos
 │       ├── features/                              # Ingeniería de características
 │       └── models/                                # Módulos de modelos
 │
-├── ⚙️ Configuración/
+├──  Configuración/
 │   ├── requirements.txt                           # Dependencias Python
 │   ├── .gitignore                                # Archivos ignorados
 │   └── environment.yml                           # Entorno conda
 │
-└── 📊 Resultados/
+└──  Resultados/
     ├── graficos/                                 # Visualizaciones finales
     ├── mapas/                                    # Mapas de predicción
     └── metricas/                                 # Métricas de evaluación
 ```
 
-## 🔍 Fuentes de Datos
+##  Fuentes de Datos
 
-### 📊 Datos Socioeconómicos (DANE)
+###  Datos Socioeconómicos (DANE)
 - **ECV** (Encuesta Nacional de Calidad de Vida): Vivienda, servicios, pobreza
 - **FIES** (Food Insecurity Experience Scale): Inseguridad alimentaria
 - **IPC** (Índice de Precios al Consumidor): Inflación alimentaria
 - **IPM** (Índice de Pobreza Multidimensional): Pobreza multidimensional
 
-### 🌡️ Datos Climáticos (ERA5 - Copernicus)
+###  Datos Climáticos (ERA5 - Copernicus)
 - **NDVI** (Normalized Difference Vegetation Index): Vegetación
 - **LST** (Land Surface Temperature): Temperatura superficial
 - **Precipitación**: Precipitación mensual
 - **Resolución**: 0.1° × 0.1° (≈11km)
 
-### 🗺️ Datos Geoespaciales (UPRA)
+###  Datos Geoespaciales (UPRA)
 - **Máscara de Frontera Agrícola**: Delimitación áreas productivas
 - **Filtrado geoespacial**: Solo áreas agropecuarias relevantes
 - **Formato**: Shapefile (.shp) con geometrías departamentales
 
-## 🧠 Modelos Implementados
+##  Modelos Implementados
 
-### 1. 🚀 XGBoost (Modelo Principal)
+### 1.  XGBoost (Modelo Principal)
 ```python
 # Hiperparámetros optimizados
 params = {
@@ -178,7 +178,7 @@ params = {
 - **R² FIES Grave**: 82.1%
 - **RMSE**: 6.23 (moderado-grave), 2.18 (grave)
 
-### 2. 🌳 Random Forest
+### 2.  Random Forest
 ```python
 # Configuración del modelo
 params = {
@@ -205,30 +205,30 @@ params = {
 - **R² FIES Moderado-Grave**: 71.2%
 - **R² FIES Grave**: 73.6%
 
-## 📈 Resultados Principales
+##  Resultados Principales
 
-### 🎯 Rendimiento de Modelos
+###  Rendimiento de Modelos
 | Modelo | FIES Moderado-Grave R² | FIES Grave R² | RMSE (Mod-Grave) | RMSE (Grave) |
 |--------|------------------------|---------------|------------------|--------------|
 | **XGBoost** | **79.8%** | **82.1%** | **6.23** | **2.18** |
 | Random Forest | 76.4% | 78.9% | 7.15 | 2.45 |
 | Elastic Net | 71.2% | 73.6% | 8.92 | 3.12 |
 
-### 🔍 Variables Más Importantes
+###  Variables Más Importantes
 1. **IPC Alimentos** (0.18) - Inflación alimentaria
 2. **Déficit Habitacional** (0.15) - Condiciones de vivienda
 3. **NDVI Promedio** (0.12) - Productividad agrícola
 4. **Precipitación** (0.10) - Condiciones climáticas
 5. **Acceso a Servicios** (0.09) - Infraestructura básica
 
-### 🗺️ Departamentos de Mayor Riesgo 2025
+###  Departamentos de Mayor Riesgo 2025
 | Departamento | FIES Moderado-Grave | FIES Grave | Nivel de Riesgo |
 |--------------|---------------------|------------|-----------------|
-| **La Guajira** | 68.4% | 31.2% | 🔴 Muy Alto |
-| **Chocó** | 62.1% | 28.7% | 🔴 Muy Alto |
-| **Magdalena** | 58.9% | 26.3% | 🟠 Alto |
-| **Córdoba** | 55.2% | 24.1% | 🟠 Alto |
-| **Sucre** | 52.8% | 22.9% | 🟠 Alto |
+| **La Guajira** | 68.4% | 31.2% |  Muy Alto |
+| **Chocó** | 62.1% | 28.7% |  Muy Alto |
+| **Magdalena** | 58.9% | 26.3% |  Alto |
+| **Córdoba** | 55.2% | 24.1% |  Alto |
+| **Sucre** | 52.8% | 22.9% |  Alto |
 
 ## 🛠️ Instalación y Uso
 
@@ -327,7 +327,7 @@ Todos los modelos utilizan `random_state=42` para garantizar reproducibilidad.
 - **Validación geográfica**: Coherencia espacial
 - **Cross-validation**: Validación cruzada estratificada
 
-## 📚 Documentación Técnica
+##  Documentación Técnica
 
 ### Archivos de Documentación
 - [`DOCUMENTACION_MASCARA_UPRA.md`](DOCUMENTACION_MASCARA_UPRA.md): Implementación técnica de filtrado geoespacial
@@ -341,7 +341,7 @@ Todos los modelos utilizan `random_state=42` para garantizar reproducibilidad.
 - Diagnósticos de modelos
 - Interpretación de resultados
 
-## 🤝 Contribuciones
+##  Contribuciones
 
 ### Para Investigadores
 - Fork del repositorio
