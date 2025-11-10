@@ -1,0 +1,23 @@
+archivo,error,filas,columnas,columnas_tiempo,columnas_depto,departamentos_unicos,variables_numericas,lista_variables
+datos_variables_x_departamento.csv,"Error tokenizing data. C error: Expected 38 fields in line 3, saw 41
+",,,,,,,
+ecv_calidadvida_2022_2024_mensual.csv,,1024.0,10.0,"['fecha', 'año', 'mes']",['departamento'],32.0,6.0,"['Vida_general', 'Salud', 'Seguridad', 'Trabajo_actividad', 'Tiempo_libre', 'Ingreso']"
+ecv_casa_2022_2024_mensual.csv,,1024.0,10.0,"['fecha', 'año', 'mes']",['departamento'],32.0,6.0,"['Propia_totalmente_pagada', 'Propia_la_estan_pagando', 'En_arriendo_o_subarriendo', 'Con_permiso_sin_pago', 'Posesion_sin_titulo', 'Propiedad_colectiva']"
+ecv_deficit_habitacional_total_2022_2024_mensual.csv,,1024.0,7.0,"['fecha', 'año', 'mes']",['departamento'],32.0,3.0,"['Deficit_cuantitativo', 'Deficit_cualitativo', 'Deficit_habitacional']"
+ecv_gastos_2022_2024_mensual.csv,,1024.0,7.0,"['fecha', 'año', 'mes']",['departamento'],32.0,3.0,"['No_alcanzan_gastos_minimos', 'Alcanzan_gastos_minimos', 'Cubren_mas_gastos_minimos']"
+ecv_pobreza_2022_2024_mensual.csv,,1024.0,6.0,"['fecha', 'año', 'mes']",['departamento'],32.0,2.0,"['Pobreza_monetaria', 'No_pobres']"
+ecv_servicios_2022_2024_mensual.csv,,1024.0,11.0,"['fecha', 'año', 'mes']",['departamento'],32.0,7.0,"['Energia', 'Gas_natural', 'Acueducto', 'Alcantarillado', 'Recoleccion_basura', 'Telefono_fijo', 'Ningun_servicio']"
+ERA5_LST_diaria_2022_01_filtrado.csv,,11648.0,3.0,['fecha'],['departamento'],32.0,1.0,['temperatura_media']
+ERA5_LST_diaria_2023_01_filtrado.csv,,11648.0,3.0,['fecha'],['departamento'],32.0,1.0,['temperatura_media']
+ERA5_LST_diaria_2024_01_filtrado.csv,,11680.0,3.0,['fecha'],['departamento'],32.0,1.0,['temperatura_media']
+ERA5_LST_diaria_2025_01_filtrado.csv,,5984.0,3.0,['fecha'],['departamento'],32.0,1.0,['temperatura_media']
+fies_2023_mensual.csv,,384.0,12.0,"['fecha', 'año', 'mes']",['departamento'],32.0,8.0,"['Preocupacion_alimentos', 'No_alimentos_saludables', 'Poca_variedad_alimentos', 'Saltar_comida', 'Comio_menos', 'Sin_alimentos', 'Hambre_no_comio', 'No_comio_dia_entero']"
+fies_2024_mensual.csv,,384.0,12.0,"['fecha', 'año', 'mes']",['departamento'],32.0,8.0,"['Preocupacion_alimentos', 'No_alimentos_saludables', 'Poca_variedad_alimentos', 'Saltar_comida', 'Comio_menos', 'Sin_alimentos', 'Hambre_no_comio', 'No_comio_dia_entero']"
+FIES_variables_mensuales_v2.csv,,1152.0,7.0,[],['Departamento'],32.0,5.0,"['Año', 'Mes', 'leve_moderado', 'grave', 'moderada']"
+ipm_mensual_x_departamento_final.csv,,1152.0,8.0,"['fecha', 'año', 'mes']",['Departamento'],32.0,3.0,"['IPM_Total', 'IPM_Cabeceras', 'IPM_Centros_Poblados']"
+lst_completo.csv,,40960.0,3.0,['fecha'],['departamento'],32.0,1.0,['temperatura_media']
+ndvi_final.csv,,2560.0,3.0,['fecha'],['departamento'],32.0,1.0,['ndvi_medio']
+precipitacion_filtrada.csv,,39904.0,3.0,['fecha'],['departamento'],32.0,1.0,['precipitacion_media']
+variable_general_x_departamento.csv,"Error tokenizing data. C error: Expected 1 fields in line 3, saw 4
+",,,,,,,
+variables_mensual_x_departamento_final.csv,,1152.0,13.0,"['fecha', 'año', 'mes']",['Departamento'],32.0,8.0,"['Analfabetismo', 'Bajo_logro_educativo', 'Barreras_acceso_salud', 'Desempleo_larga_duracion', 'Inasistencia_escolar', 'Rezago_escolar', 'Sin_aseguramiento_salud', 'Trabajo_informal']"
