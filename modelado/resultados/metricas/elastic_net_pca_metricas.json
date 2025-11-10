@@ -1,0 +1,33 @@
+{
+  "modelo": "ElasticNet_PCA",
+  "componentes_pca": 7,
+  "hiperparametros_optimizados": {
+    "estimator__alpha": 0.1,
+    "estimator__l1_ratio": 0.3,
+    "estimator__max_iter": 1000
+  },
+  "entrenamiento": {
+    "RMSE": 2.3881430130787566,
+    "MAE": 1.7200270599883232,
+    "R2": 0.855738242204667
+  },
+  "validacion_cruzada": {
+    "RMSE_mean": 2.552627017688588,
+    "RMSE_std": 0.7702139214872198,
+    "MAE_mean": 1.8691091038867644,
+    "MAE_std": 0.5010590146753142,
+    "R2_mean": 0.7883841624249118,
+    "R2_std": 0.12031976851099241
+  },
+  "resumen": {
+    "rmse_entrenamiento": 2.3881430130787566,
+    "r2_entrenamiento": 0.855738242204667,
+    "rmse_cv": 2.552627017688588,
+    "r2_cv": 0.7883841624249118,
+    "variables_predichas": 2,
+    "registros_entrenamiento": 1152,
+    "registros_prediccion": 384,
+    "features_utilizados": 42
+  },
+  "fecha_ejecucion": "2025-08-26T20:49:31.207387"
+}

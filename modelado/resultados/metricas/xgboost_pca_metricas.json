@@ -1,0 +1,28 @@
+{
+  "modelo": "XGBoost_PCA",
+  "componentes_pca": 7,
+  "entrenamiento": {
+    "RMSE": 0.1568758149653708,
+    "MAE": 0.10952862248652517,
+    "R2": 0.9993288301080983
+  },
+  "validacion_cruzada": {
+    "RMSE_mean": 2.242244882846235,
+    "RMSE_std": 1.8563809940684646,
+    "MAE_mean": 1.4385696970112618,
+    "MAE_std": 1.4242854852170903,
+    "R2_mean": 0.7872454224587975,
+    "R2_std": 0.2747219185140959
+  },
+  "resumen": {
+    "rmse_entrenamiento": 0.1568758149653708,
+    "r2_entrenamiento": 0.9993288301080983,
+    "rmse_cv": 2.242244882846235,
+    "r2_cv": 0.7872454224587975,
+    "variables_predichas": 2,
+    "registros_entrenamiento": 1152,
+    "registros_prediccion": 384,
+    "features_utilizados": 42
+  },
+  "fecha_ejecucion": "2025-08-26T20:16:46.324000"
+}

@@ -1,0 +1,34 @@
+{
+  "modelo": "SVM_PCA",
+  "componentes_pca": 7,
+  "hiperparametros_optimizados": {
+    "estimator__C": 10.0,
+    "estimator__epsilon": 0.1,
+    "estimator__gamma": "scale",
+    "estimator__kernel": "rbf"
+  },
+  "entrenamiento": {
+    "RMSE": 0.5510250496174446,
+    "MAE": 0.520566423069286,
+    "R2": 0.9934705597904439
+  },
+  "validacion_cruzada": {
+    "RMSE_mean": 2.191583068969091,
+    "RMSE_std": 1.6823971102367037,
+    "MAE_mean": 1.7164926402741603,
+    "MAE_std": 1.1772776901217072,
+    "R2_mean": 0.798312972492974,
+    "R2_std": 0.22998377781290438
+  },
+  "resumen": {
+    "rmse_entrenamiento": 0.5510250496174446,
+    "r2_entrenamiento": 0.9934705597904439,
+    "rmse_cv": 2.191583068969091,
+    "r2_cv": 0.798312972492974,
+    "variables_predichas": 2,
+    "registros_entrenamiento": 1152,
+    "registros_prediccion": 384,
+    "features_utilizados": 42
+  },
+  "fecha_ejecucion": "2025-08-26T20:39:19.956973"
+}

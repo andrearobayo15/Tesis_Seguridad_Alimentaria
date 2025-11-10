@@ -1,0 +1,58 @@
+configuracion_entrenamiento:
+  cv_folds: 5
+  min_diff: true
+  n_bootstrap: 50
+  n_jobs: -1
+  random_state: 42
+  scoring:
+  - neg_mean_absolute_error
+  - r2
+  verbosity: 1
+hiperparametros_grid_search:
+  colsample_bytree:
+  - 0.8
+  - 0.9
+  - 1.0
+  learning_rate:
+  - 0.01
+  - 0.05
+  - 0.1
+  - 0.2
+  max_depth:
+  - 3
+  - 4
+  - 5
+  - 6
+  n_estimators:
+  - 50
+  - 100
+  - 150
+  - 200
+  subsample:
+  - 0.8
+  - 0.9
+  - 1.0
+modelo: XGBoost
+objetivo: reg:squarederror
+validacion_temporal:
+  shuffle: false
+  test_size: 0.25
+  validation_size: 0.2
+variables:
+  features:
+  - PC1
+  - PC2
+  - PC3
+  - PC4
+  - PC5
+  - PC6
+  - PC7
+  identificadores:
+  - departamento
+  - año
+  - mes
+  - fecha
+  - clave
+  targets:
+  - FIES_moderado_grave
+  - FIES_grave

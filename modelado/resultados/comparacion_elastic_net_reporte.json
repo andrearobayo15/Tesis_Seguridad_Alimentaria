@@ -1,0 +1,57 @@
+{
+  "titulo": "Comparación Elastic Net: Variables Originales vs Componentes PCA",
+  "fecha_analisis": "2025-08-26 21:14:06",
+  "metodologia": {
+    "modelo": "Elastic Net Regression",
+    "validacion": "Validación Cruzada Temporal (TimeSeriesSplit, 5 folds)",
+    "metricas": [
+      "RMSE",
+      "MAE",
+      "R²"
+    ],
+    "variables_objetivo": [
+      "FIES_moderado_grave",
+      "FIES_grave"
+    ],
+    "periodo_entrenamiento": "2022-2024",
+    "periodo_prediccion": "2025"
+  },
+  "configuraciones": {
+    "elastic_net_original": {
+      "descripcion": "Modelo usando todas las variables originales",
+      "features": "Variables climáticas, socioeconómicas, geográficas y temporales",
+      "dimensionalidad": "Alta (múltiples variables correlacionadas)"
+    },
+    "elastic_net_pca": {
+      "descripcion": "Modelo usando 7 componentes principales",
+      "features": "7 componentes PCA + variables categóricas",
+      "dimensionalidad": "Reducida (7 componentes + encodings)"
+    }
+  },
+  "resultados": {
+    "metricas_validacion_cruzada": {
+      "elastic_net_original": {
+        "rmse": "0.0000 ± 0.0000",
+        "mae": "0.0000 ± 0.0000",
+        "r2": "0.0000 ± 0.0000"
+      },
+      "elastic_net_pca": {
+        "rmse": "0.0000 ± 0.0000",
+        "mae": "0.0000 ± 0.0000",
+        "r2": "0.0000 ± 0.0000"
+      }
+    }
+  },
+  "conclusiones": {
+    "modelo_superior": "Mixto",
+    "justificacion_tecnica": {
+      "pca": "Reduce dimensionalidad y multicolinealidad, mejora generalización",
+      "original": "Mantiene interpretabilidad directa de variables originales",
+      "consideraciones": "PCA puede perder información específica pero mejora estabilidad"
+    },
+    "recomendacion_uso": {
+      "pca": "Recomendado para predicción robusta con datos correlacionados",
+      "original": "Útil cuando se requiere interpretabilidad directa de variables"
+    }
+  }
+}

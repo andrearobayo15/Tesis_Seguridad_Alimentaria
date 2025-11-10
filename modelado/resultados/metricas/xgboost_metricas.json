@@ -1,0 +1,24 @@
+{
+  "entrenamiento": {
+    "RMSE": 0.013848063720074043,
+    "MAE": 0.010764983744852755,
+    "R2": 0.9994765676997952
+  },
+  "validacion_cruzada": {
+    "RMSE_mean": 7.2554643675614585,
+    "RMSE_std": 1.0702061131646872,
+    "MAE_mean": 5.487141752843502,
+    "MAE_std": 1.2049130641198118,
+    "R2_mean": -0.12642901900002387,
+    "R2_std": 0.24302818867765347
+  },
+  "resumen": {
+    "rmse_entrenamiento": 0.013848063720074043,
+    "r2_entrenamiento": 0.9994765676997952,
+    "rmse_cv": 7.2554643675614585,
+    "r2_cv": -0.12642901900002387,
+    "variables_predichas": 50,
+    "registros_entrenamiento": 384,
+    "registros_prediccion": 384
+  }
+}

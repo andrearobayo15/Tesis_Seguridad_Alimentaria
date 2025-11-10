@@ -1,0 +1,28 @@
+{
+  "modelo": "RandomForest_PCA",
+  "componentes_pca": 7,
+  "entrenamiento": {
+    "RMSE": 0.850959362776174,
+    "MAE": 0.6822070310880348,
+    "R2": 0.9842787234632524
+  },
+  "validacion_cruzada": {
+    "RMSE_mean": 2.307131459960816,
+    "RMSE_std": 1.1188187507662828,
+    "MAE_mean": 1.6960026635343937,
+    "MAE_std": 0.7866624028754651,
+    "R2_mean": 0.817305841342959,
+    "R2_std": 0.16617541243470252
+  },
+  "resumen": {
+    "rmse_entrenamiento": 0.850959362776174,
+    "r2_entrenamiento": 0.9842787234632524,
+    "rmse_cv": 2.307131459960816,
+    "r2_cv": 0.817305841342959,
+    "variables_predichas": 2,
+    "registros_entrenamiento": 1152,
+    "registros_prediccion": 384,
+    "features_utilizados": 42
+  },
+  "fecha_ejecucion": "2025-08-26T20:32:25.448305"
+}
