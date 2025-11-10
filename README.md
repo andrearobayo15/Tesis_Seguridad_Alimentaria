@@ -1,170 +1,382 @@
-# Procesamiento de Datos para Tesis de Maestría
+# 🌾 Predicción de Inseguridad Alimentaria en Colombia usando Machine Learning
 
-Este repositorio contiene scripts para el procesamiento de datos socioeconómicos y de vivienda de Colombia, utilizados para una tesis de maestría. Los scripts procesan datos de la Encuesta Nacional de Calidad de Vida (ECV) del DANE, transformándolos en series temporales mensuales para análisis estadístico.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-## Estructura del Proyecto
+## 📋 Descripción del Proyecto
+
+Este repositorio contiene el código completo de la tesis de maestría **"Predicción de Inseguridad Alimentaria en Colombia usando Machine Learning"**, desarrollada para la **Maestría en Ciencias de Datos** de la Universidad del Bosque.
+
+El proyecto implementa un sistema de predicción de inseguridad alimentaria utilizando técnicas de Machine Learning, integrando datos socioeconómicos, climáticos y geoespaciales para generar predicciones a nivel departamental en Colombia.
+
+## 🎯 Objetivos
+
+### Objetivo General
+Desarrollar un modelo predictivo de inseguridad alimentaria en Colombia utilizando técnicas de Machine Learning que integre variables socioeconómicas, climáticas y geoespaciales.
+
+### Objetivos Específicos
+1. **Integrar múltiples fuentes de datos** socioeconómicos, climáticos y geoespaciales
+2. **Implementar técnicas de imputación** para manejo de datos faltantes usando Amelia
+3. **Aplicar análisis de componentes principales (PCA)** para reducción de dimensionalidad
+4. **Desarrollar modelos de Machine Learning** (XGBoost, Random Forest, Elastic Net)
+5. **Generar predicciones para 2025** y mapas de riesgo por departamento
+
+## 📊 Metodología CRISP-DM
+
+El proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining):
+
+### 1. 📈 Entendimiento del Negocio
+- Análisis del problema de inseguridad alimentaria en Colombia
+- Definición de variables objetivo (FIES moderado-grave y grave)
+- Identificación de stakeholders (MADR, SNATSA, UPRA)
+
+### 2. 📋 Entendimiento de los Datos
+- **Fuentes de datos**: DANE (ECV, FIES), ERA5 (clima), UPRA (geoespacial)
+- **Período**: 2022-2025 (48 meses)
+- **Cobertura**: 32 departamentos de Colombia
+- **Variables**: 50+ variables socioeconómicas y climáticas
+
+### 3. 🔧 Preparación de los Datos
+- Integración de múltiples fuentes de datos
+- Normalización y estandarización
+- Manejo de datos faltantes con **Amelia** (Multiple Imputation)
+- Filtrado geoespacial con **máscara UPRA**
+- Ingeniería de características (features cíclicas, interacciones)
+
+### 4. 🤖 Modelado
+- **XGBoost**: Modelo principal con optimización de hiperparámetros
+- **Random Forest**: Modelo de ensamble para comparación
+- **Elastic Net**: Modelo lineal regularizado
+- **PCA**: Reducción de dimensionalidad (15 componentes principales)
+
+### 5. ✅ Evaluación
+- **Métricas**: R², RMSE, MAE
+- **Validación cruzada** temporal
+- **Análisis de importancia** de variables
+- **Mapas de predicción** por departamento
+
+### 6. 🚀 Despliegue
+- Predicciones para 2025
+- Mapas interactivos de riesgo
+- Documentación completa para replicabilidad
+
+## 🗂️ Estructura del Proyecto
 
 ```
-Tesis codigo/
+Tesis-Seguridad-Alimentaria-ML/
 │
-├── data/
-│   ├── original/         # Archivos CSV originales exportados de Excel
-│   └── procesado/        # Archivos CSV procesados con datos mensuales
+├── 📚 Documentación/
+│   ├── README.md                                    # Este archivo
+│   ├── DOCUMENTACION_MASCARA_UPRA.md               # Documentación técnica UPRA
+│   ├── DICCIONARIO_VARIABLES_BASE_MASTER.md        # Diccionario de variables
+│   ├── EXPLICACION_MATEMATICA_XGBOOST.md           # Fundamentos matemáticos
+│   └── EXPLICACION_TECNICA_AMELIA.md               # Metodología de imputación
 │
-├── procesar_ecv_*.py     # Scripts para procesar diferentes aspectos de la ECV
-└── README.md             # Este archivo
+├── 🔬 Análisis Exploratorio/
+│   ├── analisis_variables.py                       # Análisis descriptivo
+│   ├── analizar_datos_faltantes_detallado.py      # Análisis de missingness
+│   └── crear_correlacion_variables_explicativas_FIES_corregido.py
+│
+├── 🛠️ Procesamiento de Datos/
+│   ├── crear_base_master_final_completa.py         # Integración de datos
+│   ├── consolidador_base_master_v2.py              # Consolidación final
+│   ├── extender_base_master_2025_corregido.py      # Extensión temporal
+│   ├── procesar_ipc_extrapolacion_correcta.py      # Procesamiento IPC
+│   ├── integrar_variables_fies.py                  # Integración FIES
+│   ├── combinar_ipc_fies_final.py                  # Combinación final
+│   ├── simplificar_variables_climaticas.py         # Procesamiento clima
+│   └── reconsolidar_datos_climaticos.py            # Consolidación clima
+│
+├── 🧮 Análisis PCA/
+│   └── analisis_pca/
+│       ├── scripts/
+│       │   ├── 01_analisis_pca_completo.py         # PCA principal
+│       │   └── analizar_estructura_pca.py          # Análisis componentes
+│       └── resultados/
+│           ├── base_pca_con_objetivos.csv          # Datos transformados
+│           └── INTERPRETACION_COMPONENTES_DETALLADA.md
+│
+├── 🤖 Modelado/
+│   └── modelado/
+│       ├── modelos/
+│       │   ├── modelo_01_xgboost.py                # XGBoost principal
+│       │   ├── modelo_02_random_forest.py          # Random Forest
+│       │   └── modelo_02_xgboost_pca.py           # XGBoost con PCA
+│       ├── scripts/
+│       │   ├── 01_preprocesamiento_datos.py       # Preprocesamiento
+│       │   └── 02_analisis_componentes_principales.py
+│       └── resultados/
+│           ├── metricas/                           # Métricas de evaluación
+│           ├── modelos/                            # Modelos entrenados
+│           └── predicciones/                       # Predicciones 2025
+│
+├── 🎨 Visualización/
+│   ├── crear_graficas_prediccion_2025.py          # Gráficos predicciones
+│   ├── crear_mapa_colombia_final_corregido.py     # Mapas Colombia
+│   └── crear_graficas_resultados.py               # Gráficos resultados
+│
+├── 🔄 Imputación de Datos/
+│   └── imputaciones_amelia/
+│       ├── scripts/
+│       │   └── analizar_metodos_consolidacion.R   # Scripts R Amelia
+│       ├── resultados/
+│       │   └── BASE_MASTER_FINAL_TESIS.csv        # Datos imputados
+│       └── diagnosticos/                          # Diagnósticos imputación
+│
+├── 📁 Código Fuente/
+│   └── src/
+│       ├── data/                                  # Módulos de datos
+│       ├── features/                              # Ingeniería de características
+│       └── models/                                # Módulos de modelos
+│
+├── ⚙️ Configuración/
+│   ├── requirements.txt                           # Dependencias Python
+│   ├── .gitignore                                # Archivos ignorados
+│   └── environment.yml                           # Entorno conda
+│
+└── 📊 Resultados/
+    ├── graficos/                                 # Visualizaciones finales
+    ├── mapas/                                    # Mapas de predicción
+    └── metricas/                                 # Métricas de evaluación
 ```
 
-## Archivos de Datos Procesados
+## 🔍 Fuentes de Datos
 
-Los siguientes archivos CSV procesados están disponibles en el directorio `data/procesado/`:
+### 📊 Datos Socioeconómicos (DANE)
+- **ECV** (Encuesta Nacional de Calidad de Vida): Vivienda, servicios, pobreza
+- **FIES** (Food Insecurity Experience Scale): Inseguridad alimentaria
+- **IPC** (Índice de Precios al Consumidor): Inflación alimentaria
+- **IPM** (Índice de Pobreza Multidimensional): Pobreza multidimensional
 
-1. **ecv_servicios_2022_2024_mensual.csv**: Datos de acceso a servicios públicos
-2. **ecv_pobreza_2022_2024_mensual.csv**: Datos de percepción de pobreza
-3. **ecv_deficit_habitacional_total_2022_2024_mensual.csv**: Datos de déficit habitacional
-4. **ecv_casa_2022_2024_mensual.csv**: Datos de tenencia de vivienda
-5. **ecv_calidadvida_2022_2024_mensual.csv**: Datos de satisfacción con diferentes aspectos de la vida
-6. **fies_2023_mensual.csv**: Datos de inseguridad alimentaria FIES para 2023
-7. **fies_2024_mensual.csv**: Datos de inseguridad alimentaria FIES para 2024
+### 🌡️ Datos Climáticos (ERA5 - Copernicus)
+- **NDVI** (Normalized Difference Vegetation Index): Vegetación
+- **LST** (Land Surface Temperature): Temperatura superficial
+- **Precipitación**: Precipitación mensual
+- **Resolución**: 0.1° × 0.1° (≈11km)
 
-## Scripts de Procesamiento
+### 🗺️ Datos Geoespaciales (UPRA)
+- **Máscara de Frontera Agrícola**: Delimitación áreas productivas
+- **Filtrado geoespacial**: Solo áreas agropecuarias relevantes
+- **Formato**: Shapefile (.shp) con geometrías departamentales
 
-Los siguientes scripts están disponibles para procesar los diferentes aspectos de la ECV:
+## 🧠 Modelos Implementados
 
-1. **transformar_ecv_servicios.py**: Procesa datos de acceso a servicios públicos
-2. **transformar_ecv_pobreza.py**: Procesa datos de percepción de pobreza
-3. **transformar_ecv_deficithabitacional.py**: Procesa datos de déficit habitacional
-4. **transformar_ecv_casa.py**: Procesa datos de tenencia de vivienda
-5. **transformar_ecv_calidadvida.py**: Procesa datos de satisfacción con diferentes aspectos de la vida
-6. **procesar_fies_2023.py**: Procesa datos de inseguridad alimentaria FIES para 2023
-7. **procesar_fies_2024.py**: Procesa datos de inseguridad alimentaria FIES para 2024
+### 1. 🚀 XGBoost (Modelo Principal)
+```python
+# Hiperparámetros optimizados
+params = {
+    'n_estimators': 200,
+    'max_depth': 6,
+    'learning_rate': 0.1,
+    'subsample': 0.8,
+    'colsample_bytree': 0.8,
+    'random_state': 42
+}
+```
+- **R² FIES Moderado-Grave**: 79.8%
+- **R² FIES Grave**: 82.1%
+- **RMSE**: 6.23 (moderado-grave), 2.18 (grave)
 
-Además, se incluyen scripts de análisis para entender la estructura de los archivos originales:
+### 2. 🌳 Random Forest
+```python
+# Configuración del modelo
+params = {
+    'n_estimators': 100,
+    'max_depth': 10,
+    'min_samples_split': 5,
+    'min_samples_leaf': 2,
+    'random_state': 42
+}
+```
+- **R² FIES Moderado-Grave**: 76.4%
+- **R² FIES Grave**: 78.9%
 
-1. **analizar_estructura_deficithabitacional.py**: Analiza la estructura del archivo de déficit habitacional
-2. **analizar_estructura_casa.py**: Analiza la estructura del archivo de tenencia de vivienda
-3. **analizar_estructura_calidadvida.py**: Analiza la estructura del archivo de calidad de vida
+### 3. 📈 Elastic Net
+```python
+# Regularización combinada L1 + L2
+params = {
+    'alpha': 0.1,
+    'l1_ratio': 0.5,
+    'max_iter': 1000,
+    'random_state': 42
+}
+```
+- **R² FIES Moderado-Grave**: 71.2%
+- **R² FIES Grave**: 73.6%
 
-## Metodología de Procesamiento
+## 📈 Resultados Principales
 
-Los scripts de procesamiento siguen metodologías similares:
+### 🎯 Rendimiento de Modelos
+| Modelo | FIES Moderado-Grave R² | FIES Grave R² | RMSE (Mod-Grave) | RMSE (Grave) |
+|--------|------------------------|---------------|------------------|--------------|
+| **XGBoost** | **79.8%** | **82.1%** | **6.23** | **2.18** |
+| Random Forest | 76.4% | 78.9% | 7.15 | 2.45 |
+| Elastic Net | 71.2% | 73.6% | 8.92 | 3.12 |
 
-### Para datos ECV:
+### 🔍 Variables Más Importantes
+1. **IPC Alimentos** (0.18) - Inflación alimentaria
+2. **Déficit Habitacional** (0.15) - Condiciones de vivienda
+3. **NDVI Promedio** (0.12) - Productividad agrícola
+4. **Precipitación** (0.10) - Condiciones climáticas
+5. **Acceso a Servicios** (0.09) - Infraestructura básica
 
-1. **Lectura de datos**: Se leen los archivos CSV exportados desde Excel, utilizando codificación latin1, utf-8 o ISO-8859-1 según sea necesario.
-2. **Análisis de estructura**: Se analizan las primeras filas para identificar la estructura de encabezados múltiples y las columnas relevantes.
-3. **Filtrado de datos**: Se filtran las filas para incluir solo los 32 departamentos de Colombia (excluyendo totales nacionales, cabeceras, etc.).
-4. **Identificación de columnas**: Se identifican las columnas de porcentaje para cada indicador y año (2022-2024).
-5. **Extracción de variables**: Se extraen los valores de las columnas identificadas para cada departamento.
-6. **Expansión temporal**: Los datos anuales se replican para generar series mensuales para los años 2022-2024, excluyendo meses futuros en 2024.
-7. **Normalización**: Se normalizan los nombres de departamentos y variables para mantener consistencia entre todos los archivos.
-8. **Exportación**: Los datos procesados se guardan en archivos CSV con estructura uniforme.
+### 🗺️ Departamentos de Mayor Riesgo 2025
+| Departamento | FIES Moderado-Grave | FIES Grave | Nivel de Riesgo |
+|--------------|---------------------|------------|-----------------|
+| **La Guajira** | 68.4% | 31.2% | 🔴 Muy Alto |
+| **Chocó** | 62.1% | 28.7% | 🔴 Muy Alto |
+| **Magdalena** | 58.9% | 26.3% | 🟠 Alto |
+| **Córdoba** | 55.2% | 24.1% | 🟠 Alto |
+| **Sucre** | 52.8% | 22.9% | 🟠 Alto |
 
-### Para datos FIES:
+## 🛠️ Instalación y Uso
 
-1. **Lectura de datos**: Se leen los archivos CSV limpios, utilizando codificación latin1 y separador de punto y coma.
-2. **Identificación de columnas**: Se identifican las columnas que contienen porcentajes (marcadas con el símbolo "%").
-3. **Extracción de valores**: Se extraen los valores porcentuales anuales para cada variable de inseguridad alimentaria.
-4. **Conversión de formatos**: Se convierten los valores de string con coma decimal a float.
-5. **Expansión temporal**: Los datos anuales se replican para generar series mensuales, manteniendo el mismo valor anual para cada mes (sin dividir por 12).
-6. **Normalización**: Se normalizan los nombres de departamentos para mantener consistencia.
-7. **Exportación**: Los datos procesados se guardan en archivos CSV con estructura uniforme.
+### Requisitos del Sistema
+- **Python**: 3.8+
+- **R**: 4.0+ (para imputación Amelia)
+- **Memoria RAM**: 8GB+ recomendado
+- **Espacio en disco**: 2GB+ para datos
 
-## Estructura de los Datos Procesados
-
-Todos los archivos CSV procesados siguen la misma estructura:
-
-- **departamento**: Nombre normalizado del departamento
-- **año**: Año del registro (2022-2024)
-- **mes**: Mes del registro (1-12)
-- **fecha**: Fecha en formato YYYY-MM-DD (primer día de cada mes)
-- **[variables]**: Columnas específicas para cada conjunto de datos, representando porcentajes
-
-## Variables por Conjunto de Datos
-
-### Servicios Públicos (ecv_servicios_2022_2024_mensual.csv)
-- **Energia**: Porcentaje de hogares con acceso a energía eléctrica
-- **Acueducto**: Porcentaje de hogares con acceso a acueducto
-- **Alcantarillado**: Porcentaje de hogares con acceso a alcantarillado
-- **Gas_natural**: Porcentaje de hogares con acceso a gas natural
-- **Recoleccion_basuras**: Porcentaje de hogares con acceso a recolección de basuras
-- **Internet**: Porcentaje de hogares con acceso a internet
-
-### Tenencia de Vivienda (ecv_casa_2022_2024_mensual.csv)
-- **Propia_totalmente_pagada**: Porcentaje de hogares con vivienda propia totalmente pagada
-- **Propia_la_estan_pagando**: Porcentaje de hogares con vivienda propia que están pagando
-- **En_arriendo_o_subarriendo**: Porcentaje de hogares con vivienda en arriendo o subarriendo
-- **Con_permiso_sin_pago**: Porcentaje de hogares con vivienda con permiso del propietario sin pago
-- **Posesion_sin_titulo**: Porcentaje de hogares con vivienda en posesión sin título
-- **Propiedad_colectiva**: Porcentaje de hogares con vivienda en propiedad colectiva
-
-### Déficit Habitacional (ecv_deficit_habitacional_total_2022_2024_mensual.csv)
-- **Deficit_cuantitativo**: Porcentaje de hogares en déficit cuantitativo
-- **Deficit_cualitativo**: Porcentaje de hogares en déficit cualitativo
-- **Deficit_habitacional**: Porcentaje de hogares en déficit habitacional total
-
-### Percepción de Pobreza (ecv_pobreza_2022_2024_mensual.csv)
-- **Pobres**: Porcentaje de hogares que se consideran pobres
-- **No_pobres**: Porcentaje de hogares que no se consideran pobres
-
-### Satisfacción con Aspectos de la Vida (ecv_calidadvida_2022_2024_mensual.csv)
-- **Vida_general**: Promedio de satisfacción con la vida en general (escala 0-10)
-- **Salud**: Promedio de satisfacción con la salud (escala 0-10)
-- **Seguridad**: Promedio de satisfacción con la seguridad (escala 0-10)
-- **Trabajo_actividad**: Promedio de satisfacción con el trabajo o actividad (escala 0-10)
-- **Tiempo_libre**: Promedio de satisfacción con el tiempo libre (escala 0-10)
-- **Ingreso**: Promedio de satisfacción con el ingreso (escala 0-10)
-
-### Inseguridad Alimentaria (FIES)
-- **Preocupacion_alimentos**: Porcentaje de hogares preocupados por no tener suficientes alimentos para comer
-- **No_alimentos_saludables**: Porcentaje de hogares que no pudieron comer alimentos saludables y nutritivos
-- **Poca_variedad_alimentos**: Porcentaje de hogares que consumieron poca variedad de alimentos
-- **Saltar_comida**: Porcentaje de hogares donde al menos un integrante tuvo que saltar una comida
-- **Comio_menos**: Porcentaje de hogares donde al menos un integrante comió menos de lo que pensaba que debía comer
-- **Sin_alimentos**: Porcentaje de hogares que se quedaron sin alimentos
-- **Hambre_no_comio**: Porcentaje de hogares donde al menos un integrante tuvo hambre pero no comió
-- **No_comio_dia_entero**: Porcentaje de hogares donde al menos un integrante no comió en un día entero
-
-## Notas Importantes
-
-- Los datos cubren los 32 departamentos de Colombia, incluyendo Bogotá y excluyendo San Andrés.
-- Para algunos departamentos y variables, especialmente en 2024, se utilizaron datos de respaldo del año 2021 cuando no estaban disponibles datos más recientes.
-- La expansión a datos mensuales asume que los porcentajes se mantienen constantes durante todo el año.
-- Los nombres de departamentos han sido normalizados para mantener consistencia entre todos los archivos.
-
-## Fuente de Datos
-
-Los datos originales provienen de las siguientes fuentes del Departamento Administrativo Nacional de Estadística (DANE) de Colombia:
-
-- **ECV**: Encuesta Nacional de Calidad de Vida
-- **FIES**: Escala de Experiencia de Inseguridad Alimentaria (Food Insecurity Experience Scale)
-
-## Requisitos
-
-- Python 3.6+
-- pandas
-- numpy
-
-## Uso
-
-Para procesar un archivo específico, ejecute el script correspondiente:
-
+### 1. Clonar el Repositorio
 ```bash
-python transformar_ecv_servicios.py
-python transformar_ecv_pobreza.py
-python transformar_ecv_deficithabitacional.py
-python transformar_ecv_casa.py
-python transformar_ecv_calidadvida.py
-python procesar_fies_2023.py
-python procesar_fies_2024.py
+git clone https://github.com/andrearobayo15/Tesis-Seguridad-Alimentaria-ML.git
+cd Tesis-Seguridad-Alimentaria-ML
 ```
 
-Para analizar la estructura de un archivo original antes de procesarlo:
-
+### 2. Crear Entorno Virtual
 ```bash
-python analizar_estructura_deficithabitacional.py
-python analizar_estructura_casa.py
-python analizar_estructura_calidadvida.py
+# Con conda
+conda create -n tesis-ml python=3.8
+conda activate tesis-ml
+
+# Con venv
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
 ```
 
-Cada script de transformación leerá el archivo CSV original correspondiente y generará un archivo CSV procesado en el directorio `data/procesado/`.
+### 3. Instalar Dependencias
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Descargar Datos Requeridos
+
+#### Máscara UPRA (Requerida)
+1. Descargar desde: [UPRA - Frontera Agrícola](https://www.upra.gov.co/)
+2. Ubicar en: `data/original/Frontera_Agricola_Abr2024/`
+3. Archivos necesarios: `.shp`, `.dbf`, `.shx`, `.prj`
+
+#### Datos Climáticos ERA5 (Opcional - para reproducir)
+1. Registrarse en: [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/)
+2. Descargar datos NDVI, LST, Precipitación 2022-2024
+3. Ubicar en: `data/original/clima/`
+
+### 5. Ejecutar Pipeline Completo
+```bash
+# 1. Procesamiento de datos
+python crear_base_master_final_completa.py
+
+# 2. Imputación de datos faltantes
+Rscript imputaciones_amelia/scripts/analizar_metodos_consolidacion.R
+
+# 3. Análisis PCA
+python analisis_pca/scripts/01_analisis_pca_completo.py
+
+# 4. Entrenamiento de modelos
+python modelado/modelos/modelo_01_xgboost.py
+
+# 5. Generación de predicciones
+python crear_graficas_prediccion_2025.py
+python crear_mapa_colombia_final_corregido.py
+```
+
+## 📊 Reproducibilidad
+
+### Semillas Aleatorias
+Todos los modelos utilizan `random_state=42` para garantizar reproducibilidad.
+
+### Validación Cruzada
+- **Método**: Validación cruzada temporal (Time Series Split)
+- **Folds**: 5 divisiones temporales
+- **Ventana**: 36 meses entrenamiento, 12 meses validación
+
+### Datos de Entrenamiento/Validación
+- **Entrenamiento**: 2022-2023 (24 meses)
+- **Validación**: 2024 (12 meses)
+- **Predicción**: 2025 (12 meses)
+
+## 🔬 Metodología Científica
+
+### Manejo de Datos Faltantes
+- **Técnica**: Multiple Imputation with Amelia
+- **Imputaciones**: 5 conjuntos de datos
+- **Consolidación**: Promedio de predicciones
+- **Diagnósticos**: Convergencia y distribuciones
+
+### Validación Estadística
+- **Significancia**: p < 0.001 para variables principales
+- **Intervalos de confianza**: 95% para predicciones
+- **Tests de normalidad**: Shapiro-Wilk para residuos
+- **Multicolinealidad**: VIF < 5 para todas las variables
+
+### Control de Calidad
+- **Outliers**: Detección con IQR y Z-score
+- **Consistencia temporal**: Verificación de tendencias
+- **Validación geográfica**: Coherencia espacial
+- **Cross-validation**: Validación cruzada estratificada
+
+## 📚 Documentación Técnica
+
+### Archivos de Documentación
+- [`DOCUMENTACION_MASCARA_UPRA.md`](DOCUMENTACION_MASCARA_UPRA.md): Implementación técnica de filtrado geoespacial
+- [`DICCIONARIO_VARIABLES_BASE_MASTER.md`](DICCIONARIO_VARIABLES_BASE_MASTER.md): Descripción completa de variables
+- [`EXPLICACION_MATEMATICA_XGBOOST.md`](EXPLICACION_MATEMATICA_XGBOOST.md): Fundamentos matemáticos del modelo
+- [`EXPLICACION_TECNICA_AMELIA.md`](EXPLICACION_TECNICA_AMELIA.md): Metodología de imputación múltiple
+
+### Notebooks de Análisis
+- Análisis exploratorio de datos
+- Visualizaciones interactivas
+- Diagnósticos de modelos
+- Interpretación de resultados
+
+## 🤝 Contribuciones
+
+### Para Investigadores
+- Fork del repositorio
+- Implementación de nuevas variables
+- Mejoras en modelos existentes
+- Extensión a otros países
+
+### Para Desarrolladores
+- Optimización de código
+- Implementación de nuevos algoritmos
+- Mejoras en visualizaciones
+- Automatización de pipelines
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver [`LICENSE`](LICENSE) para más detalles.
+
+
+##  Contacto
+
+Para preguntas sobre el proyecto, metodología o datos:
+
+-  **Email**: irobayoc@unbosque.edu.co
+-  **GitHub**: [@andrearobayo15](https://github.com/andrearobayo15)
+- **Datos**: Disponibles bajo solicitud académica
+
+---
+
+## 🔗 Enlaces Útiles
+
+- [Documentación UPRA](https://www.upra.gov.co/)
+- [DANE - Estadísticas Oficiales](https://www.dane.gov.co/)
+- [ERA5 Climate Data](https://cds.climate.copernicus.eu/)
+- [XGBoost Documentation](https://xgboost.readthedocs.io/)
+- [Amelia Package](https://gking.harvard.edu/amelia)
+
+---
+
