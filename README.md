@@ -1,10 +1,10 @@
-# 🌾 Predicción de Inseguridad Alimentaria en Colombia usando Machine Learning
+#  Predicción de Inseguridad Alimentaria en Colombia usando Machine Learning
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 
 Este repositorio contiene el código completo de la tesis de maestría **"Predicción de Inseguridad Alimentaria en Colombia usando Machine Learning"**, desarrollada para la **Maestría en Ciencias de Datos** de la Universidad del Bosque.
 
@@ -97,7 +97,7 @@ Tesis-Seguridad-Alimentaria-ML/
 │           ├── base_pca_con_objetivos.csv          # Datos transformados
 │           └── INTERPRETACION_COMPONENTES_DETALLADA.md
 │
-├── 🤖 Modelado/
+├──  Modelado/
 │   └── modelado/
 │       ├── modelos/
 │       │   ├── modelo_01_xgboost.py                # XGBoost principal
@@ -292,7 +292,7 @@ python crear_graficas_prediccion_2025.py
 python crear_mapa_colombia_final_corregido.py
 ```
 
-## 📊 Reproducibilidad
+##  Reproducibilidad
 
 ### Semillas Aleatorias
 Todos los modelos utilizan `random_state=42` para garantizar reproducibilidad.
